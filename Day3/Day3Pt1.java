@@ -1,6 +1,19 @@
+package aoc;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+
+/*
+ * Author: Cole Polyak
+ * 25 February 2018
+ * Advent of Code 2015 Day 3
+ * 
+ */
+
+// TODO Determine more elegant solution to array of houses creation.
+// TODO Implement safe file initialization
+// TODO Part 2.
 
 public class Day3Pt1 {
 

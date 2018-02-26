@@ -1,3 +1,5 @@
+package aoc;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -8,6 +10,9 @@ import java.util.Scanner;
  * Advent of Code 2015 Day 2
  * 
  */
+
+// TODO Implement safe file initialization. 
+// TODO FindMax and FindExtra feel clunky.
 
 public class Day2 {
 
