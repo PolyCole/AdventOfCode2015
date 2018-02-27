@@ -7,18 +7,18 @@ import java.util.Scanner;
 /*
  * Author: Cole Polyak
  * 25 February 2018
- * Advent of Code 2015 Day 3
+ * Advent of Code 2015 Day 3 Pt. 1
  * 
  */
 
 // TODO Determine more elegant solution to array of houses creation.
 // TODO Implement safe file initialization
-// TODO Part 2.
 
 public class Day3Pt1 {
 
 	public static void main(String[] args) {
 		
+		// File initialization.
 		Scanner file = null;
 		
 		try
@@ -31,21 +31,23 @@ public class Day3Pt1 {
 			System.exit(1);
 		}
 		
-		int[][] arr = new int[10000][10000];
+		// Kinda clumsy array creation...
+		int[][] arr = new int[5000][5000];
 		
-		int x = 4999;
-		int y = 4999;
+		// Santa's initial position.
+		int x = 2499;
+		int y = 2499;
 		
-		int count = 0;
-		
+		// File is one line, so it can be read in all at once.
 		String input = file.next();
-		System.out.println(input);
 		int currentIndex = 0;
 		
+		// Iterates over file.
 		for(int i = 0; i < input.length(); ++i)
 		{
 			String cur = input.substring(currentIndex, currentIndex+1);
 			
+			// Move left
 			if("<".equals(cur))
 			{
 				System.out.println("<");
@@ -54,6 +56,7 @@ public class Day3Pt1 {
 				--x;
 			}
 			
+			// Move right
 			else if(">".equals(cur))
 			{
 				System.out.println(">");
@@ -61,13 +64,17 @@ public class Day3Pt1 {
 				++arr[x+1][y];
 				++x;
 			}
-			else if("V".equals(cur))
+			
+			// Move down
+			else if("v".equals(cur))
 			{
 				System.out.println("V");
 				++arr[x][y];
 				++arr[x][y-1];
 				--y;
 			}
+			
+			// Move up
 			else if("^".equals(cur))
 			{
 				System.out.println("^");
@@ -75,11 +82,10 @@ public class Day3Pt1 {
 				++arr[x][y+1];
 				++y;
 			}
-			
-			++count;
 			++currentIndex;
 		}
 		
+		// Loop to determine how many houses got atleast one gift.
 		int housesReceivingAtLeastOne = 0;
 		
 		for(int i = 0; i < arr.length; ++i)
@@ -93,7 +99,7 @@ public class Day3Pt1 {
 			}
 		}
 		
-		System.out.println("Total iterative count: " + count);
+		// And output.
 		System.out.println("Houses receiving atleast one gift: " + housesReceivingAtLeastOne);
 		
 		
